@@ -118,7 +118,7 @@ st.write(
 """\n
 - Las observaciones han sido obtenidas en diferentes fechas
 - El caudal ha sido tomado a las 7 horas
-- El promedio es referente al cauda durante 24 horas
-- Maximo valor del caudal en el periodo de 24 horas
+- El promedio es referente al caudal durante 24 horas
+- Máximo valor del caudal en el periodo de 24 horas
 - Precipitación en 24 horas
 """)
