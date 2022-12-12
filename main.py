@@ -5,6 +5,12 @@ import urllib.request
 
 st.title('Datos Hidrometereológicos del Gobierno Regional Piura')
 
+from PIL import Image
+image = Image.open('contaminacion.jpeg')
+st.image(image, caption='Distribución de las estaciones en el Proyecto Especial Chira Piura | Fuente: Portal PECHP', use_column_width=True)
+
+#id = 1alnmXxvcOvu3o3UxL_41YwNmdLczgN1u
+
 @st.experimental_memo 
 def download_data():
 	url = 'https://www.datosabiertos.gob.pe/node/10105/download'
@@ -23,6 +29,7 @@ st.markdown('''
 	el comportamiento de los ríos Chira y Piura, a fin de lograr una toma de decisiones más eficiente por parte de las personas implicadas en el sector agrícola.
 	Este dataset muestra los datos hidrometereológicos registrados de las presas, estaciones hidrológicas e hidrométricas.
 	- **Base de Datos:** (https://www.datosabiertos.gob.pe/node/10105/download)''')
+
 
 
 st.header('Dataset Hidrometereológico')
@@ -88,15 +95,30 @@ z = x.loc[op_multi, op_dato]
 
 st.bar_chart(z)
 
+
 @st.cache
 def convert_df(df):
     return df.to_csv().encode('utf-8')
 
 csv = convert_df(y)
 
+
+st.write("""Descarga la comparación realizada
+""")
 st.download_button(
     label="Download",
     data=csv,
     file_name='Descargar archivo.csv',
     mime='text/csv',
 )
+
+st.write("""Notas: 
+""")
+st.write(
+"""\n
+- Las observaciones han sido obtenidas en diferentes fechas
+- El caudal ha sido tomado a las 7 horas
+- El promedio es referente al cauda durante 24 horas
+- Maximo valor del caudal en el periodo de 24 horas
+- Precipitación en 24 horas
+""")
