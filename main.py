@@ -88,7 +88,7 @@ op_multi = st.multiselect(
 op_dato = st.selectbox('- Dato Hidrometereológico', sorted(datos_hidro))
 
 x = dt.set_index("DISTRITO")
-y = x.loc[op_multi]
+y = x.loc[op_multi, op_dato]
 
 st.dataframe(y)
 z = x.loc[op_multi, op_dato]
