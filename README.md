@@ -1,2 +1,2 @@
-#  Dashboard Catálogo Sísmico 1960 - 2021 (IGP)
+#  Dashboard Datos Hidrometeorológicos Gobierno Regional Piura
 Proyecto Final de Programacion Avanzada
